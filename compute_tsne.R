@@ -24,27 +24,4 @@ colnames(tsne.coord) <- c("X1", "X2")
 
 results <- as_data_frame(tsne.coord) %>% mutate(imagename = imagenames)
 
-ax <- list(
-  title = "",
-  zeroline = FALSE,
-  showline = FALSE,
-  showticklabels = FALSE,
-  showgrid = FALSE
-)
-tsne.daily.plot <- 
-  plot_ly(results,
-          x = ~X1, y = ~X2, 
-          type = "scatter",
-          mode = "markers",
-          hoverinfo = "text",
-          text = ~imagename,
-          #color = ~log(Weight),
-          #colors = brewer.pal(9,"Paired"),
-          #size = ~Size,
-          #sizes = c(8,30),
-          marker = list(opacity = 1)
-  ) %>%
-  layout(title = "Images", xaxis = ax, yaxis = ax)
-
 write_csv(results, "./data/tsne_results.csv")
-htmlwidgets::saveWidget(tsne.daily.plot, "imagecluster.html")

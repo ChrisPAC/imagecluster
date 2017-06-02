@@ -2,6 +2,6 @@
 
 python compute_distances.py
 
-Rscript display_tsne.R 
+Rscript compute_tsne.R 
 
-firefox imagecluster.html &
+# Some way to start up shiny app
