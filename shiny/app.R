@@ -2,7 +2,7 @@ library(shiny)
 library(mlbench)
 library(plotly)
 library(shinythemes)
-library(dplyr)
+library(tidyverse)
 
 results <- read_csv("../data/tsne_results.csv")
 
@@ -34,7 +34,13 @@ server <- function(input, output){
   
   # Coupled event 1
   output$Plot1 <- renderPlotly({
-    
+    ax <- list(
+      title = "",
+      zeroline = FALSE,
+      showline = FALSE,
+      showticklabels = FALSE,
+      showgrid = FALSE
+    )
     tsne.daily.plot <- 
       plot_ly(results,
               x = ~X1, y = ~X2, 
