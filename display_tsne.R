@@ -46,4 +46,5 @@ tsne.daily.plot <-
   ) %>%
   layout(title = "Images", xaxis = ax, yaxis = ax)
 
+write_csv(results, "./data/tsne_results.csv")
 htmlwidgets::saveWidget(tsne.daily.plot, "imagecluster.html")
